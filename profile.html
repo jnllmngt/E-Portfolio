@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janelle Managuit | IT Student</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #818CF8;
+            --dark: #1E293B;
+            --light: #F8FAFC;
+            --accent: #EC4899;
+            --gray: #94A3B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .button {
+            display: inline-block;
+            background-color:  #4338CA;;
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 2px;
+            border-radius: 50px;
+        }
+
+        .button:hover {
+            background-color: black;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            border: 5px solid var(--primary-light);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #4338CA;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill {
+            background-color: var(--primary-light);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .experience-date {
+            color: var(--gray);
+        }
+
+        .experience-company {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-text {
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--dark);
+            color: white;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"> Janelle Managuit </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#affiliation">Affiliations</a></li>
+                        <li><a href="#achievement">Achievements</a></li>
+                        <li><a href="#training">Workshops</a></li>
+                        <li><a href="#others">Others</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="profile.jpg" alt="Janelle Managuit" class="profile-img">
+                <h1>Janelle M. Managuit</h1>
+                <p class="tagline">Information Technology Student</p>
+                <p>Currently pursuing my Bachelors Degree in Information Technology at STI West Negros University. 
+                   While still building my professional experience, I am committed to continually developing my skills, 
+                   viewing every challenge as an opportunity to grow and learn.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Contact</a>
+                    <a href="#about" class="btn btn-outline">Skills</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">ABOUT ME</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Janelle, a fourth-year ICT Provincial Scholar currently pursuing a Bachelor of Science in Information Technology at STI West Negros University. 
+                        As a passionate and hardworking student, I enjoy learning new concepts and improving my skills. 
+                        My goal is to complete my degree on time and excel in my studies. 
+                        In my free time, I love studying and practicing to enhance my programming skills in both mobile and web development.</p>
+
+                    <p>Beyond academics, I believe in the value of collaboration, creativity, and continuous growth. 
+                        I enjoy working with others to share ideas, solve problems, and create solutions that can make a positive impact. 
+                        I am also eager to explore new technologies and trends in the IT field, as I believe staying updated is essential in this fast-changing industry. 
+                        With determination and passion, I aim to build a career where I can apply my skills, contribute to meaningful projects, 
+                        and inspire others to see technology not just as a tool, but as a bridge to a better future.</p>
+                </div>
+                <div>
+                    
+                    <h3>Soft Skills</h3>
+                    <div class="skills">
+                        <span class="skill">Time Management</span>
+                        <span class="skill">Detail-Oriented</span>
+                        <span class="skill">Adaptability</span>
+                        <span class="skill">Critical Thinking</span>
+                        <span class="skill">Creativity</span>
+                        <span class="skill">Organized</span>
+                        <span class="skill">Teamwork</span>
+                    </div>
+
+                    <h3>Technical Skills</h3>
+                    <div class="skills">
+                        <span class="skill">UI/UX Design</span>
+                        <span class="skill">HTML&CSS</span>
+                        <span class="skill">Database Management</span>
+                        <span class="skill">Data Entry</span>
+                        <span class="skill">MS Office</span>
+                        <span class="skill">Canva</span>
+                        <span class="skill">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">EDUCATION</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">STI West Negros University</span>
+                    <span class="experience-date">2022 - Present</span>
+                </div>
+                <div class="experience-company">Bachelor of Science in Information Technology</div>
+                <div class="experience-company">Burgos Street, Bacolod City</div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">La Granja National High School - SHS</span>
+                    <span class="experience-date">2020 - 2022</span>
+                </div>
+                <div class="experience-company">Technical Vocational Livelihood - Home Economics</div>
+                <div class="experience-company">Brgy. La Granja, La Carlota City</div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">La Granja National High School</span>
+                    <span class="experience-date">2019 - 2020</span>
+                </div>
+                <div class="experience-company">Brgy. La Granja, La Carlota City</div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">FCRMNHS - Caliling Extension</span>
+                    <span class="experience-date">2018 - 2019</span>
+                </div>
+                <div class="experience-company">Brgy. Caliling, Municipality of Cauayan</div>
+            </div>
+             <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Tapi National High School</span>
+                    <span class="experience-date">2016 - 2018</span>
+                </div>
+                <div class="experience-company">Brgy. Tapi, Kabankalan City</div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Tapi Elementary School</span>
+                    <span class="experience-date">2010 - 2016</span>
+                </div>
+                <div class="experience-company">Brgy. Tapi, Kabankalan City</div>
+            </div>
+        </div>
+    </section>
+
+     <section id="affiliation" class="affiliation">
+        <div class="container">
+            <h2 class="section-title">AFFILIATIONS</h2>
+            <div class="experience-item">
+                 <div class="experience-header">
+                    <span class="experience-title">Member of Programmer's Guild of CICT Department</span>
+                    <span class="experience-date">Academic Year 2025 - 2026</span>
+                </div>
+                <div class="experience-header">
+                    <span class="experience-title">Member of Programmer's Guild of CICT Department</span>
+                    <span class="experience-date">Academic Year 2024 - 2025</span>
+                </div>
+                <div class="experience-header">
+                    <span class="experience-title">Member of Programmer's Guild of CICT Department</span>
+                    <span class="experience-date">Academic Year 2023 - 2024</span>
+                </div>
+                <div class="experience-header">
+                    <span class="experience-title">Member of Programmer's Guild of CICT Department</span>
+                    <span class="experience-date">Academic Year 2022 - 2023</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievement" class="achievement">
+        <div class="container">
+            <h2 class="section-title">ACADEMIC ACHIEVEMENTS</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">ICT Provincial Scholar</span>
+                    <span class="experience-date">Academic Year 2024 - Present</span>
+                </div>
+                <div class="experience-header">
+                    <span class="experience-title">Dean's Lister for 1st Semester</span>
+                    <span class="experience-date">Academic Year 2024 - 2025</span>
+                </div>
+                <div class="experience-header">
+                    <span class="experience-title">Dean's Lister for 2nd Semester</span>
+                    <span class="experience-date">Academic Year 2023 - 2024</span>
+                </div>
+                <div class="experience-header">
+                    <span class="experience-title">Dean's Lister for 1st Semester</span>
+                    <span class="experience-date">Academic Year 2023 - 2024</span>
+                </div>
+                 <div class="experience-header">
+                    <span class="experience-title">Dean's Lister for 2nd Semester</span>
+                    <span class="experience-date">Academic Year 2022 - 2023</span>
+                </div>
+                <div class="experience-header">
+                    <span class="experience-title">Graduated as with High Honor in Senior High School</span>
+                    <span class="experience-date">School Year 2021 - 2022</span>
+                </div>
+                <div class="experience-header">
+                    <span class="experience-title">Graduated as with High Honor in Junior High School</span>
+                    <span class="experience-date">School Year 2019 - 2020</span>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+     <section id="training" class="training">
+        <div class="container">
+            <h2 class="section-title">TRAININGS AND WORKSHOPS</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">From Sketch to Screen: Exploring Techniques for a Creative Web Design</span>
+                    <span class="experience-date">April 2023</span>
+                </div>
+                <div class="experience-company">STI West Negros University</div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Digital Art Workshop: Creating Vector Art using Adobe Illustrator</span>
+                    <span class="experience-date">November 2022</span>
+                </div>
+                <div class="experience-company">STI West Negros University</div>
+            </div>
+        </div>
+    </section>
+
+   <section id="others" class="others">
+        <div class="container">
+            <h2 class="section-title">INTERESTS AND HOBBIES</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Digital art</span>
+                    <span class="experience-title">Coding school projects</span>
+                    <span class="experience-title">Solving puzzles</span>
+                    <span class="experience-title">Graphic design</span>
+                    <span class="experience-title">Video editing</p></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="others" class="others">
+         <div class="container">
+            <h2 class="section-title">REFERENCE PERSONS</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Christal Rose S. Villaflor</span>
+                    <span class="experience-date">09632824901</span>
+                </div>
+                <div class="experience-company">Bachelor of Science in Information Technology</div>
+                <div class="experience-company">Vchristalrose@gmail.com</div>
+                <div class="experience-company">Brgy. E.Lopez, Silay City</div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Khelin May L. Dulce</span>
+                    <span class="experience-date">09850233707</span>
+                </div>
+                <div class="experience-company">Bachelor of Science in Information Technology</div>
+                <div class="experience-company">khelindulce@gmail.com</div>
+                <div class="experience-company">Brgy. Ma-ao, Bago City</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="contact-content">
+                <p class="contact-text">👤 Janelle Magsipoc Managuit</p>
+                <p class="contact-text">📞 09927100933 or 09947008115</p>
+                <p class="contact-text">✉️ managuit.182307@wnu.sti.edu.ph</p>
+                <p class="contact-text">📍 Brgy. 23, Bacolod City, Negros Occidental</p>
+                <a href="https://mail.google.com/mail/?view=cm&to=managuit.182307@wnu.sti.edu.ph" class="btn btn-primary">Send Me An Email</a>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/janelle.magsipocmanaguit/" class="button">Facebook</a><br>
+                    <a href="https://www.instagram.com/jxnx_llx/?igsh=OGt2Nzd0ZnV6Nnh5#" class="button">Instagram</a><br>
+                    <a href="https://x.com/jxnx_llx" class="button">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Janelle Managuit. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
